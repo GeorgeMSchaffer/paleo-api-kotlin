@@ -34,6 +34,10 @@ class IntervalController(@Qualifier("intervalService") private val intervalServi
     fun find(@PathVariable id: Long): ResponseEntity<Interval> {
         logger.debug("Call to find by id with id: $id")
         val interval = service.findById(id)
+        if(interval === null) {
+            logger.debug("No intervals found for intervalNo: $id")
+            return ResponseEntity<Interval>(null,HttpStatus.NOT_FOUND)
+        }
         return ResponseEntity<Interval>(interval, HttpStatus.OK)
     }
     @GetMapping("/intervals/list")
@@ -44,7 +48,10 @@ class IntervalController(@Qualifier("intervalService") private val intervalServi
         val intervals = service.findAll() as List<Interval?>
         //val intervals = service.findAll(page,sort) as List<Interval?>
         // var interval = new Interval();
-
+        if(intervals.size === 0) {
+            logger.debug("No intervals found")
+            return ResponseEntity<List<Interval?>>(null,HttpStatus.NOT_FOUND)
+        }
         return ResponseEntity<List<Interval?>>(intervals, HttpStatus.OK)
     }
 //    @GetMapping("/intervals")

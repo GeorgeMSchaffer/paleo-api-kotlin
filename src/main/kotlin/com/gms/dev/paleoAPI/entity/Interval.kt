@@ -1,5 +1,5 @@
 package com.gms.dev.paleoAPI.entity
-
+import java.util.*
 import jakarta.persistence.*
 import lombok.Getter
 import lombok.Setter
@@ -21,10 +21,14 @@ public open class Interval {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "interval_no", nullable = false)
+    //@Column(name = "interval_no", nullable = false)
+    //@ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "interval_no")
     open var id: Long? = null
 
 
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "intervals")
+//    var occurances: List<Occurance> = mutableListOf()
 
     @Column(name = "record_type")
     open var recordType: String? = null
@@ -35,9 +39,8 @@ public open class Interval {
     @Column(name = "interval_name")
     open var intervalName: String? = null
 
-    @OneToOne(mappedBy = "earlyInterval")
-    @JoinColumn(name = "interval_name", referencedColumnName = "early_interval")
-    private val earlyOccurance: Occurance? = null
+
+
 
     @Column(name = "abbrev")
     open var abbrev: String? = null

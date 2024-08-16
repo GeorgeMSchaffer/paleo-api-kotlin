@@ -16,7 +16,7 @@ open interface OccuranceRepository : CrudRepository<Occurance?, Long?>
     //fun findById(id: Long?): Optional<Interval?>?
     @NonNull
     override fun findAll(): List<Occurance?> //public List<Interval> findByEraId(int eraId);
-    fun findByInterval_Name(intervalName: String?): List<Occurance?>?
+    //fun findByInterval_Name(intervalName: String?): List<Occurance?>?
 //    fun getOccurancesByEarlyInterval(earlyInterval: String): List<Occurance>
     //fun findByEarlyInterval_NameOrderByMinMa(earlyInterval: String?): List<Occurance?>
 }

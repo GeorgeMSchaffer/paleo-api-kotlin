@@ -29,10 +29,11 @@ class OccuranceService(@Qualifier("occuranceRepository") val repo: OccuranceRepo
 //        return repo.findAll(pageable)
 //    }
 
-    fun getOccurancesByEarlyInterval(intervalName: String): List<Occurance> {
-        logger.debug("Trying to get occurance by intervalName: $intervalName")
-        return repo.findByInterval_Name(intervalName)
-    }
+//    fun getOccurancesByEarlyInterval(intervalName: String): List<Occurance> {
+//        logger.debug("Trying to get occurance by intervalName: $intervalName")
+//        val occurances = repo.findByInterval_Name(intervalName) as List<Occurance>
+//        return occurances;
+//    }
 
     @NonNull
     fun findById(id: Long?): Occurance {

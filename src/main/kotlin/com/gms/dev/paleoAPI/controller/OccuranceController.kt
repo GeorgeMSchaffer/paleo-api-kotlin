@@ -32,12 +32,12 @@ class OccuranceController(@Qualifier("occuranceService") private val occuranceSe
         return ResponseEntity<String>(str, HttpStatus.OK)
     }
 
-    @GetMapping("/occurances/interval/{intervalName}")
-    fun findOccurancesByIntervalName(@PathVariable intervalName: String): ResponseEntity<List<Occurance?>> {
-        logger.debug("Call to find by intervalName with intervalName: $intervalName")
-        val occurances = service.getOccurancesByEarlyInterval(intervalName)
-        return ResponseEntity<List<Occurance?>>(occurances, HttpStatus.OK)
-    }
+//    @GetMapping("/occurances/interval/{intervalName}")
+//    fun findOccurancesByIntervalName(@PathVariable intervalName: String): ResponseEntity<List<Occurance?>> {
+//        logger.debug("Call to find by intervalName with intervalName: $intervalName")
+//        val occurances = service.getOccurancesByEarlyInterval(intervalName)
+//        return ResponseEntity<List<Occurance?>>(occurances, HttpStatus.OK)
+//    }
 
     @GetMapping("/occurance/{id}")
     fun find(@PathVariable id: Long): ResponseEntity<Occurance> {

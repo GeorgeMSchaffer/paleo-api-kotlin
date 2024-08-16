@@ -15,6 +15,11 @@ class Occurance {
     @Column(name = "occurrence_no", nullable = false)
     private var occurrenceNo: Int? = null
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "interval_no")
+    private val intervalNo: Interval? = null
+
+
     @Column(name = "record_type")
     private var recordType: String? = null
 
@@ -33,6 +38,12 @@ class Occurance {
     @Column(name = "identified_rank")
     private var identifiedRank: String? = null
 
+    @Column(name = "early_interval")
+    private var earlyInterval: String? = null
+
+    @Column(name = "late_interval")
+    private var lateInterval: String? = null
+
     @Column(name = "identified_no")
     private var identifiedNo: Int? = null
 
@@ -48,12 +59,11 @@ class Occurance {
 //    @Id
 //    @Column(name = "accepted_no", nullable = false)
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private var acceptedNo: Int? = null
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "early_interval")
-//    @MapKey(name = "interval_name")
-    private val earlyInterval: Interval? = null
+    //@ManyToOne
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//     @JoinColumn(name = "interval_no")
+//    private val interval: Interval? = null
 
 
     @Column(name = "max_ma")
