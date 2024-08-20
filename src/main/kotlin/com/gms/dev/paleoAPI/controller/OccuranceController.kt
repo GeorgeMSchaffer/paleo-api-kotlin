@@ -45,6 +45,21 @@ class OccuranceController(@Qualifier("occuranceService") private val occuranceSe
         val occurance = service.findById(id)
         return ResponseEntity<Occurance>(occurance, HttpStatus.OK)
     }
+    @GetMapping("/occurance/family/{family}")
+    fun findByFamily(@PathVariable family: String): ResponseEntity<List<Occurance>> {
+        val occurances = service.findOccurancesByFamilyis(family)
+        return ResponseEntity<List<Occurance>>(occurances, HttpStatus.OK)
+    }
+    @GetMapping("/occurance/family/{family}")
+    fun findByGenus(@PathVariable family: String): ResponseEntity<List<Occurance>> {
+        val occurances = service.findOccurancesByFamilyis(family)
+        return ResponseEntity<List<Occurance>>(occurances, HttpStatus.OK)
+    }
+    @GetMapping("/occurance/class/{className}")
+    fun findByClassName(@PathVariable className: String): ResponseEntity<List<Occurance>> {
+        val occurances = service.findOccurancesByClassOrderIs(className)
+        return ResponseEntity<List<Occurance>>(occurances, HttpStatus.OK)
+    }
     @GetMapping("/occurances")
     fun getAll(
 

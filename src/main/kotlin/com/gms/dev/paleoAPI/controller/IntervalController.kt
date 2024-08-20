@@ -100,6 +100,7 @@ class IntervalController(@Qualifier("intervalService") private val intervalServi
         }
         return ResponseEntity<List<Interval>>(ages, HttpStatus.OK)
     }
+
     @GetMapping("/interval/children/{intervalName}")
     fun getIntervalsByParentName(@PathVariable parentIntervalName: String): ResponseEntity<List<Interval>>{
         logger.debug("Getting children Interval Name: $parentIntervalName")

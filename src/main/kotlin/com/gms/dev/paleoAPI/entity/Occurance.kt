@@ -2,12 +2,20 @@ package com.gms.dev.paleoAPI.entity
 import jakarta.persistence.*
 import lombok.Getter
 import lombok.Setter
+import com.gms.dev.paleoAPI.entity.Interval
 
 @Entity
 @Getter
 @Setter
 @Table(name = "occurances")
-@NamedQuery(name="occurance.getOccurancesByEarlyIntervalName", query = "FROM Occurance o inner join Interval i on i.intervalName = o.earlyInterval")
+@NamedQuery(
+    name="occurance.getOccurancesByEarlyIntervalName",
+    query = "FROM Occurance o inner join Interval i on i.intervalName = o.earlyInterval")
+
+@NamedQuery(
+    name="occurance.getGenonologyBetweenMya",
+    query = "SELECT family,genus,classOrder,phylum,classField ,count(1) from Occurance WHERE minMa BETWEEN :myaStart and :myaEnd group by family,genus,classOrder,classField order by count(1) desc")
+
 class Occurance {
 
     @Id

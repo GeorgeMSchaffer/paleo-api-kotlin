@@ -16,7 +16,7 @@ enum class IntervalTypeEnum {
 @Table(name = "intervals")
 @NamedQuery(name="interval.getIntervalHierarchy", query = "FROM Interval i inner join Interval i2 on i.id = i2.parentNo")
 @Getter @Setter
-public open class Interval {
+class Interval {
 
 
     @Id

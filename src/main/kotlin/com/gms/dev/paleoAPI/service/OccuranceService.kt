@@ -23,6 +23,16 @@ class OccuranceService(@Qualifier("occuranceRepository") val repo: OccuranceRepo
         return repo.findAll() as List<Occurance?>
     }
 
+    fun findOccurancesByPhylumIs(phylum:String): List<Occurance>{
+        return repo.findOccurancesByPhylumIs(phylum)
+    }
+    fun findOccurancesByClassOrderIs(classOrder:String): List<Occurance>{
+        return repo.findOccurancesByClassOrderIs(classOrder)
+    }
+    fun findOccurancesByFamilyis(family:String): List<Occurance>{
+        return repo.findOccurancesByFamily(family)
+    }
+
 //    @Qualifier("findAll")
 //    open fun findAll(pageable: org.springframework.data.domain.Pageable,sort:Sort): Page<Occurance?> {
 //        logger.debug("Calling occurance findAll")
